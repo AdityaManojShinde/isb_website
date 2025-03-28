@@ -54,12 +54,13 @@ const Contact = () => {
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 123 456 7890",
+      value: "+91 9923536913",
     },
     {
       icon: MapPin,
       label: "Address",
-      value: "Tech Park, Bangalore, India",
+      value:
+        "#1, Vishwadurga Building,Lane1, Gulmohar park, ITI Road, Aundh, Pune 411007",
     },
     {
       icon: Clock,
