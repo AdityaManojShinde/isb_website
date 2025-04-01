@@ -31,7 +31,7 @@ const Hero = () => {
             style={{ y: y2 }}
             className="flex items-center justify-center order-1 lg:order-2"
           >
-            <div className="relative w-full h-[400px] lg:h-[600px]">
+            <div className="relative w-full h-[400px] lg:h-[400px]">
               <Image
                 src="/hero_section_img.svg"
                 alt="Indian Startup Business"
@@ -55,7 +55,8 @@ const Hero = () => {
                 Empowering Indian Startups
               </h1>
               <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                Your gateway to India's vibrant startup ecosystem. Discover opportunities, connect with innovators, and grow your business.
+                Your gateway to India's vibrant startup ecosystem. Discover
+                opportunities, connect with innovators, and grow your business.
               </p>
             </div>
             <div className="flex flex-col gap-4 min-[400px]:flex-row">
@@ -63,19 +64,12 @@ const Hero = () => {
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" className="inline-flex items-center rounded-lg px-6 py-3 text-lg font-medium">
+              <Button
+                variant="outline"
+                className="inline-flex items-center rounded-lg px-6 py-3 text-lg font-medium"
+              >
                 Learn More
               </Button>
-            </div>
-            <div className="flex gap-8 items-center">
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-primary" />
-                <span className="text-sm text-gray-500">5000+ Members</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-primary" />
-                <span className="text-sm text-gray-500">Growing Network</span>
-              </div>
             </div>
           </motion.div>
         </div>
