@@ -1,39 +1,38 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Menu, X, Rocket } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { useTheme } from 'next-themes'
-import { MoonIcon, SunIcon } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Menu, X, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
-  ]
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "About", href: "#about" },
+    { name: "Testimonials", href: "#testimonials" },
+  ];
 
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'backdrop-blur-lg bg-background/80 border-b' : ''
+        scrolled ? "backdrop-blur-lg bg-background/80 border-b" : ""
       }`}
-      style={{ height: '4rem' }} // Explicit height for consistency
+      style={{ height: "4rem" }} // Explicit height for consistency
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full">
@@ -56,14 +55,22 @@ const Navbar = () => {
                 </a>
               ))}
               <Button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 variant="ghost"
                 size="icon"
               >
                 <SunIcon className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <MoonIcon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </Button>
-              <Button>Get Started</Button>
+              <Button>
+                <a
+                  key="Contact"
+                  href="#contact"
+                  className="text-sm font-medium transition-colors hover:text-primary"
+                >
+                  Contact
+                </a>
+              </Button>
             </div>
           </div>
 
@@ -84,7 +91,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <motion.div
-        className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}
+        className={`md:hidden ${isOpen ? "block" : "hidden"}`}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
         transition={{ duration: 0.2 }}
@@ -100,11 +107,18 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
-          <Button className="w-full mt-4">Get Started</Button>
+          <a
+            key="Contact"
+            href="#contact"
+            className="text-sm font-medium transition-colors hover:text-primary"
+            onClick={() => setIsOpen(false)}
+          >
+            <Button className="w-full mt-4">Contact</Button>
+          </a>
         </div>
       </motion.div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

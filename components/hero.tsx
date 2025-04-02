@@ -2,14 +2,21 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, TrendingUp, LineChart, Target } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const Hero = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 100]);
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
-  const opacity = useTransform(scrollY, [0, 200], [1, 0]);
+
+  // Function to scroll to a section
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
@@ -31,12 +38,20 @@ const Hero = () => {
             style={{ y: y2 }}
             className="flex items-center justify-center order-1 lg:order-2"
           >
-            <div className="relative w-full h-[400px] lg:h-[600px]">
+            <div className="relative w-full h-[400px] lg:h-[400px]">
               <Image
-                src="/hero_section_img.svg"
+                src="/hero/hero_light.gif"
                 alt="Indian Startup Business"
                 fill
-                className="object-contain rounded-lg"
+                className="object-contain rounded-3xl dark:hidden"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+              <Image
+                src="/hero/hero_dark.gif"
+                alt="Indian Startup Business"
+                fill
+                className="object-contain rounded-3xl hidden dark:block"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
@@ -55,27 +70,25 @@ const Hero = () => {
                 Empowering Indian Startups
               </h1>
               <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                Your gateway to India's vibrant startup ecosystem. Discover opportunities, connect with innovators, and grow your business.
+                Your gateway to India's vibrant startup ecosystem. Discover
+                opportunities, connect with innovators, and grow your business.
               </p>
             </div>
             <div className="flex flex-col gap-4 min-[400px]:flex-row">
-              <Button className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white hover:bg-primary/90">
-                Get Started
+              <Button
+                className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white hover:bg-primary/90 dark:text-black"
+                onClick={() => scrollToSection("contact")}
+              >
+                Contact
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" className="inline-flex items-center rounded-lg px-6 py-3 text-lg font-medium">
+              <Button
+                variant="outline"
+                className="inline-flex items-center rounded-lg px-6 py-3 text-lg font-medium"
+                onClick={() => scrollToSection("about")}
+              >
                 Learn More
               </Button>
-            </div>
-            <div className="flex gap-8 items-center">
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-primary" />
-                <span className="text-sm text-gray-500">5000+ Members</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-primary" />
-                <span className="text-sm text-gray-500">Growing Network</span>
-              </div>
             </div>
           </motion.div>
         </div>

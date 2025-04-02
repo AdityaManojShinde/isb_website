@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   description: "Empowering Indian Startups with Innovative Solutions",
   keywords:
     "Indian startups, business consulting, web development, mobile development, UI/UX design",
+  icons: {
+    icon: "/icon/icon.svg",
+  },
 };
 
 export default function RootLayout({
