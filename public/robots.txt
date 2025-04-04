@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://indianstartupbusiness.com
+
+# Sitemaps
+Sitemap: https://indianstartupbusiness.com/sitemap.xml
