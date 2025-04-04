@@ -35,27 +35,36 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            style={{ y: y2 }}
             className="flex items-center justify-center order-1 lg:order-2"
           >
-            <div className="relative w-full h-[400px] lg:h-[400px]">
+            <motion.div
+              animate={{
+                y: [0, -20, 0], // Keyframes for up and down animation
+              }}
+              transition={{
+                duration: 3, // Duration of one complete cycle
+                repeat: Infinity, // Loop the animation infinitely
+                ease: "easeInOut", // Smooth easing
+              }}
+              className="relative w-full h-[400px] lg:h-[400px]"
+            >
               <Image
-                src="/hero/hero_light.gif"
+                src="/hero/light.svg"
                 alt="Indian Startup Business"
                 fill
-                className="object-contain rounded-3xl dark:hidden"
+                className="shadow object-contain rounded-3xl dark:hidden"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <Image
-                src="/hero/hero_dark.gif"
+                src="/hero/dark.svg"
                 alt="Indian Startup Business"
                 fill
                 className="object-contain rounded-3xl hidden dark:block"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Text Content */}
