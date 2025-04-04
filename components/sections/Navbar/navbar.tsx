@@ -29,17 +29,17 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "backdrop-blur-lg bg-background/80 border-b" : ""
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300  ${
+        scrolled ? "bg-background/90 border-b" : "bg-transparent"
       }`}
-      style={{ height: "4rem" }} // Explicit height for consistency
+      style={{ height: "4rem" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full">
           <div className="flex items-center">
             <a href="#" className="flex items-center space-x-2">
               <Rocket className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold">ISB</span>
+              <span className="text-xl font-bold">IndianStartupBusiness</span>
             </a>
           </div>
 
@@ -89,7 +89,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <motion.div
         className={`md:hidden ${isOpen ? "block" : "hidden"}`}
         initial={{ opacity: 0, y: -20 }}

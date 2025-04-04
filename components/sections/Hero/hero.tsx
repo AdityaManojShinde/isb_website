@@ -22,7 +22,7 @@ const Hero = () => {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ paddingTop: "2rem" }}
+      style={{ paddingTop: "1.5rem" }}
     >
       <motion.div className="absolute inset-0 -z-10" style={{ y: y1 }}>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]" />
@@ -74,7 +74,7 @@ const Hero = () => {
                 opportunities, connect with innovators, and grow your business.
               </p>
             </div>
-            <div className="flex flex-col gap-4 min-[400px]:flex-row">
+            <div className="flex flex-col gap-4 pb-6 min-[400px]:flex-row">
               <Button
                 className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white hover:bg-primary/90 dark:text-black"
                 onClick={() => scrollToSection("contact")}
