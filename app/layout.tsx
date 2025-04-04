@@ -11,8 +11,22 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ISB : Indian Startup Business",
   description: "Empowering Indian Startups with Innovative Solutions",
-  keywords:
-    "Indian startups, business consulting, web development, mobile development, UI/UX design",
+  keywords: [
+    "Indian Startup Ecosystem",
+    "Startup Business Solutions",
+    "Indian Startup Business",
+    "Startup Consulting India",
+    "Web Development Mumbai",
+    "Mobile App Development India",
+    "UI/UX Design Services",
+    "Digital Transformation India",
+    "SaaS Development",
+    "MVP Development",
+    "Startup Technology Solutions",
+    "Business Scalability",
+    "Entrepreneurship Support",
+    "Indian Tech Innovation",
+  ].join(", "),
   icons: {
     icon: "/icon/icon.svg",
   },
