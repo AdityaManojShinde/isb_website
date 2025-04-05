@@ -106,7 +106,7 @@ const Hero = () => {
             </div>
             <div className="flex flex-col gap-4 pb-6 min-[400px]:flex-row">
               <Button
-                className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white hover:bg-primary/90 dark:text-black"
+                className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white hover:bg-primary dark:text-white"
                 onClick={() => scrollToSection("contact")}
               >
                 {herodata.buttonText1}

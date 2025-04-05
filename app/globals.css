@@ -31,6 +31,7 @@ body {
     --card-foreground: 0 0% 3.9%; /* Used in card text */
     --popover: 0 0% 100%; /* Used in popover components */
     --popover-foreground: 0 0% 3.9%; /* Used in popover text */
+    /* --primary: 156.21, 79.82%, 42.75%; Used in buttons and primary text */
     --primary: 156.21, 79.82%, 42.75%; /* Used in buttons and primary text */
     --primary-foreground: 0 0% 98%; /* Used in primary button text */
     --secondary: 0 0% 96.1%; /* Used in secondary buttons */
