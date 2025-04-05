@@ -57,7 +57,7 @@ const Hero = () => {
               className="relative w-full h-[400px] lg:h-[400px]"
             >
               <Image
-                src="/hero/light.svg"
+                src="/hero/green.svg"
                 alt="Indian Startup Business"
                 fill
                 className="shadow object-contain rounded-3xl dark:hidden"
