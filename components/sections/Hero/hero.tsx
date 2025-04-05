@@ -18,6 +18,14 @@ const Hero = () => {
     }
   };
 
+  const herodata = {
+    title: "Empowering Indian Startups",
+    description:
+      "Your gateway to India's vibrant startup ecosystem. Discover opportunities, connect with innovators, and grow your business.",
+    buttonText1: "Contact",
+    buttonText2: "Learn More",
+  };
+
   return (
     <section
       id="home"
@@ -35,27 +43,36 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            style={{ y: y2 }}
             className="flex items-center justify-center order-1 lg:order-2"
           >
-            <div className="relative w-full h-[400px] lg:h-[400px]">
+            <motion.div
+              animate={{
+                y: [0, -20, 0], // Keyframes for up and down animation
+              }}
+              transition={{
+                duration: 3, // Duration of one complete cycle
+                repeat: Infinity, // Loop the animation infinitely
+                ease: "easeInOut", // Smooth easing
+              }}
+              className="relative w-full h-[400px] lg:h-[400px]"
+            >
               <Image
-                src="/hero/hero_light.gif"
+                src="/hero/light.svg"
                 alt="Indian Startup Business"
                 fill
-                className="object-contain rounded-3xl dark:hidden"
+                className="shadow object-contain rounded-3xl dark:hidden"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <Image
-                src="/hero/hero_dark.gif"
+                src="/hero/dark.svg"
                 alt="Indian Startup Business"
                 fill
                 className="object-contain rounded-3xl hidden dark:block"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Text Content */}
@@ -67,11 +84,24 @@ const Hero = () => {
           >
             <div className="space-y-6">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Empowering Indian Startups
+                {herodata.title.split(" ").map((word, index) => (
+                  <span
+                    key={index}
+                    style={{
+                      color:
+                        index % 3 === 0
+                          ? "#FF9933" // Saffron
+                          : index % 3 === 1
+                          ? "#87CEEB" // Light Blue (Ashoka Chakra color)
+                          : "#16C47F", // Green
+                    }}
+                  >
+                    {word}{" "}
+                  </span>
+                ))}
               </h1>
               <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                Your gateway to India's vibrant startup ecosystem. Discover
-                opportunities, connect with innovators, and grow your business.
+                {herodata.description}
               </p>
             </div>
             <div className="flex flex-col gap-4 pb-6 min-[400px]:flex-row">
@@ -79,7 +109,7 @@ const Hero = () => {
                 className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white hover:bg-primary/90 dark:text-black"
                 onClick={() => scrollToSection("contact")}
               >
-                Contact
+                {herodata.buttonText1}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
@@ -87,7 +117,8 @@ const Hero = () => {
                 className="inline-flex items-center rounded-lg px-6 py-3 text-lg font-medium"
                 onClick={() => scrollToSection("about")}
               >
-                Learn More
+                {herodata.buttonText2}
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </motion.div>
