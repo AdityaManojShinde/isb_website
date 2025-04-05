@@ -40,7 +40,7 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit: (values: z.infer<typeof formSchema>) => void = (values) => {
     toast.success("Message sent successfully!");
     form.reset();
   };
@@ -49,7 +49,7 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "indianstartupbusiness@contact.com",
+      value: "inquiry@indianstartupbusiness.com",
     },
     {
       icon: Phone,
@@ -112,10 +112,13 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* <div className="relative">
-            <div className="relative bg-background rounded-lg p-6 shadow-sm border">
+          <div className="relative">
+            <div className="relative bg-background rounded-lg p-6 shadow-sm border ">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-6"
+                >
                   <FormField
                     control={form.control}
                     name="name"
@@ -159,11 +162,13 @@ const Contact = () => {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full">Send Message</Button>
+                  <Button type="submit" className="w-full hover:bg-primary">
+                    Send Message
+                  </Button>
                 </form>
               </Form>
             </div>
-          </div> */}
+          </div>
         </motion.div>
       </div>
     </section>

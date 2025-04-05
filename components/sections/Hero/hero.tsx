@@ -18,6 +18,14 @@ const Hero = () => {
     }
   };
 
+  const herodata = {
+    title: "Empowering Indian Startups",
+    description:
+      "Your gateway to India's vibrant startup ecosystem. Discover opportunities, connect with innovators, and grow your business.",
+    buttonText1: "Contact",
+    buttonText2: "Learn More",
+  };
+
   return (
     <section
       id="home"
@@ -76,11 +84,24 @@ const Hero = () => {
           >
             <div className="space-y-6">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Empowering Indian Startups
+                {herodata.title.split(" ").map((word, index) => (
+                  <span
+                    key={index}
+                    style={{
+                      color:
+                        index % 3 === 0
+                          ? "#FF9933" // Saffron
+                          : index % 3 === 1
+                          ? "#87CEEB" // Light Blue (Ashoka Chakra color)
+                          : "#16C47F", // Green
+                    }}
+                  >
+                    {word}{" "}
+                  </span>
+                ))}
               </h1>
               <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                Your gateway to India's vibrant startup ecosystem. Discover
-                opportunities, connect with innovators, and grow your business.
+                {herodata.description}
               </p>
             </div>
             <div className="flex flex-col gap-4 pb-6 min-[400px]:flex-row">
@@ -88,7 +109,7 @@ const Hero = () => {
                 className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white hover:bg-primary/90 dark:text-black"
                 onClick={() => scrollToSection("contact")}
               >
-                Contact
+                {herodata.buttonText1}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
@@ -96,7 +117,8 @@ const Hero = () => {
                 className="inline-flex items-center rounded-lg px-6 py-3 text-lg font-medium"
                 onClick={() => scrollToSection("about")}
               >
-                Learn More
+                {herodata.buttonText2}
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </motion.div>

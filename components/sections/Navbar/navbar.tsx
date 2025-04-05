@@ -38,7 +38,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-full">
           <div className="flex items-center">
             <a href="#" className="flex items-center space-x-2">
-              <Rocket className="h-8 w-8 text-primary" />
+              <Rocket className="h-8 w-8 text-primary " />
               <span className="text-xl font-bold">IndianStartupBusiness</span>
             </a>
           </div>
